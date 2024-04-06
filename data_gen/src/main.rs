@@ -5,7 +5,7 @@ use std::io::{Read, Write};
 fn main() {
     let name = String::from("apple");
     let subject = String::from("computer_science");
-    const RANGE: u32 = 10;
+    const RANGE: u32 = 1_000_000;
 
     let mut file = File::create("data.txt").expect("Failed to create file");
 
