@@ -7,7 +7,7 @@ fn main() {
 }
 
 fn get_value(queried_key:&str) -> String{
-    let file = File::open("C:\\Pro\\On_Disk_Index\\data_gen\\data.txt").unwrap();
+    let file = File::open("../data_gen/data.txt").unwrap();
 
     let reader = io::BufReader::new(file);
 
