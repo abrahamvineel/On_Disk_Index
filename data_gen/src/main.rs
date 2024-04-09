@@ -4,6 +4,7 @@ use std::io::Write;
 
 fn main() {
     const RANGE: u32 = 1_000_000;
+    // const RANGE: u32 = 1_0;
     let name = String::from("apple");
     let subject = String::from("computer_science");
     let mut file = File::create("data.txt").expect("Failed to create file");
