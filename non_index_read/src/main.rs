@@ -13,7 +13,6 @@ fn main() {
     let mut handles = vec![];
     for i in 1..=10 {
         let handle = thread::spawn(move || {
-            // Call a function with different parameters from each thread
             let v = 100000000 - i;
             let val = format!("{}{}", "apple", v);
             let start_time = Instant::now();
@@ -23,7 +22,6 @@ fn main() {
         handles.push(handle);
     }
 
-    // Wait for all threads to finish
     for handle in handles {
         handle.join().unwrap();
     }
