@@ -45,7 +45,6 @@ fn get_value(queried_key:&str) -> String{
     return String::new();
 }
 
-
 // fn get_value(queried_key:&str) -> String{
 //     let mut file = File::open("../data_gen/data100mil.txt").unwrap();
 //     let mut buffer = String::new();
