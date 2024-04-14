@@ -45,24 +45,24 @@ fn get_value(queried_key:&str) -> String{
     return String::new();
 }
 
-// fn get_value(queried_key:&str) -> String{
-//     let mut file = File::open("../data_gen/data100mil.txt").unwrap();
-//     let mut buffer = String::new();
-//     file.read_to_string(&mut buffer).unwrap();
-//
-//     // let reader = io::BufReader::new(file);
-//
-//     for line in buffer.split("\n") {
-//         // println!("{}", line);
-//         // let res = match line {
-//         //     Ok(line) => String::from(line),
-//         //     Err(err) => String::from(err.to_string())
-//         // };
-//         let row: Vec<&str> = line.split(",").collect();
-//         let (key, value) = (row[0], row[1]);
-//         if key == queried_key {
-//             return value.to_string()
-//         }
-//     }
-//     return String::new();
-// }
+fn get_value_with_100mil(queried_key:&str) -> String{
+    let mut file = File::open("../data_gen/data100mil.txt").unwrap();
+    let mut buffer = String::new();
+    file.read_to_string(&mut buffer).unwrap();
+
+    // let reader = io::BufReader::new(file);
+
+    for line in buffer.split("\n") {
+        // println!("{}", line);
+        // let res = match line {
+        //     Ok(line) => String::from(line),
+        //     Err(err) => String::from(err.to_string())
+        // };
+        let row: Vec<&str> = line.split(",").collect();
+        let (key, value) = (row[0], row[1]);
+        if key == queried_key {
+            return value.to_string()
+        }
+    }
+    return String::new();
+}
