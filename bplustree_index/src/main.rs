@@ -10,6 +10,10 @@ struct LeafNode {
 }
 
 struct BPlusTree {
+    root: Option<usize>
+}
+
+impl BPlusTree {
 
 }
 
