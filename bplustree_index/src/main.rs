@@ -3,6 +3,7 @@ use std::fs::{File, OpenOptions};
 use std::path::Path;
 const PAGE_SIZE: usize = 4096;
 const FILE_NAME: &str = "bplus_index.dat";
+const MAX_NODES: i32 = 4;
 struct Node {
     keys: Vec<i32>,
     children: Vec<usize>
