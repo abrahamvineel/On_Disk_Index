@@ -28,6 +28,11 @@ impl BPlusTree {
             });
         Ok(BPlusTree { root: None, file })
     }
+
+    fn insert() {
+        // check for node size if > max_nodes then split else insert
+        //need to check whether to write to disk after each insert or every 1000 inserts using WAL?
+    }
 }
 
 fn main() {
