@@ -1,6 +1,5 @@
+use std::fs::File;
 
-use std::fs::{File, OpenOptions};
-use std::path::Path;
 const PAGE_SIZE: usize = 4096;
 const FILE_NAME: &str = "bplus_index.dat";
 const MAX_NODES: i32 = 4;
