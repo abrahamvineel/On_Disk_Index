@@ -1,4 +1,3 @@
-use std::error::Error;
 use std::fs::File;
 use std::io::{Read, Seek, SeekFrom, Write};
 use serde::{Deserialize, Serialize};
@@ -18,19 +17,28 @@ enum SerializationError {
     IoError(std::io::Error),
 }
 
+impl From<std::io::Error> for SerializationError {
+    fn from(error: std::io::Error) -> Self {
+        SerializationError::IoError(error)
+    }
+}
+
 impl Node {
     fn serialize(&self, buffer: &mut Vec<u8>) -> Result<(), SerializationError> {
             // Write key as u32
-            // buffer.write_all(&self.keys.to_be_bytes())?;
-            //
-            // // Write value length (string length) as u16
-            // let value_len = self.children.len() as u16;
-            // buffer.write_all(&value_len.to_be_bytes())?;
-            //
-            // // Write value as bytes
-            // buffer.write_all(self.children.as_bytes())?;
+        for key in &self.keys {
+            buffer.write_all(&key.to_be_bytes())?;
+        }
 
-            Ok(())
+            // Write value length (string length) as u16
+        let value_len = self.children.len() as u16;
+        buffer.write_all(&value_len.to_be_bytes())?;
+
+            // Write value as bytes
+        for child in &self.children {
+            buffer.write_all(&child.to_be_bytes())?;
+        }
+        Ok(())
     }
 
     fn deserialize(buffer: &[u8]) -> Option<Node> {
