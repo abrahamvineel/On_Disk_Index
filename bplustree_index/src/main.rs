@@ -46,6 +46,7 @@ impl Node {
             return None;
         }
 
+
         // Read key as u32
         let mut key_bytes = [0; 4];
         key_bytes.copy_from_slice(&buffer[..4]);
