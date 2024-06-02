@@ -6,7 +6,6 @@ use std::time::{Instant, Duration};
 
 fn main() {
     // let start_time = Instant::now();
-
     let mut handles = vec![];
     for i in 1..=10 {
         let handle = thread::spawn(move || {
